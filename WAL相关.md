@@ -7,7 +7,7 @@
 
 跟着时间线，注意 peer clusters 接收的 writes。如果 Writes 发生在 WAL roll 之前，不会反向追溯已经 rolled 的 WAL。
 
-[pic]
+![WAL_Roll](https://github.com/yilong2001/yl-hbase-rep/blob/master/img/WAL_rolling.png)
 
 ## 2 WAL Splitting
 一个Region Server有许多Regions。在一个Region Server上的Regions共享相同的Active WAL文件。

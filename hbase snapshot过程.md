@@ -53,7 +53,10 @@ HBase设计的主要原则之一，就是一旦一个文件写了之后，就不
 （2）快照不是一个表的拷贝。最简单的考虑这个问题的方式是，它是一个追踪元数据（table info 和 regions）和数据（HFiles，memstore，WALs）的集合。在快照的生成过程中，没有数据拷贝。
 
 ## 3 Snapshot 生成过程
+![Snapshot](https://github.com/yilong2001/yl-hbase-rep/blob/master/img/snapshot_progress.png)
+
 `HBase Master`收到`online快照`请求，会基于zookeeper、经过一个`两阶段提交`过程，最终完成快照。具体过程如下：
+
 
 ### 3.1 准备阶段
 （1）`Master`在ZK创建一个节点：标识为`prepare the snapshot`；
@@ -77,6 +80,7 @@ HBase设计的主要原则之一，就是一旦一个文件写了之后，就不
 （2）RS收到失败消息，做回滚处理；
 
 ## 4 Snapshot 存储和备份
+![Archiving](https://github.com/yilong2001/yl-hbase-rep/blob/master/img/table_snapshot_data.png)
  `HFile`不可变，但是在`hbase compaction`期间，`HFile`会做`合并`，原有的`HFile`就会被`删除`。
  
  但是，如果某一个`HFile`属于一个快照，那么这个`HFile`就不会被删除，而是被移入`Archive`目录。

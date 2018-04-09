@@ -41,6 +41,8 @@
  用于`log splitter`时，追踪`pending`状态的log，以用于`重放`和`分配`。
 
 ## 2 Replication节点
+![Replication_ZK_Nodes](https://github.com/yilong2001/yl-hbase-rep/blob/master/img/hbase_zk_node.png)
+
  Replication zondes不是描述一个临时状态，意味着replication 是可信的数据源，描述了每个节点的replication状态。
 
 ### 2.1 /hbase/replication (zookeeper.znode.replication)
