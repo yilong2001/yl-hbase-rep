@@ -40,6 +40,9 @@
 ### 1.11/hbase/splitlog (zookeeper.znode.splitlog)
  用于`log splitter`时，追踪`pending`状态的log，以用于`重放`和`分配`。
 
+### 1.12/hbase/recovering-regions
+ 用于 RegionServer 记录 处于恢复状态的 Region .
+
 ## 2 Replication节点
 ![Replication_ZK_Nodes](https://github.com/yilong2001/yl-hbase-rep/blob/master/img/hbase_zk_node.png)
 

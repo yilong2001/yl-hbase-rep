@@ -510,7 +510,7 @@ HRegion有两种锁：lock、updatesLock，这两种锁均是ReentrantReadWriteL
 
 #### lock
 关闭region的doClose方法需要持有lock的write锁，
-startBulkRegionOperation在进行跨列簇处理时也要求持有lock的writ锁，其它均只需持有lock的read锁
+startBulkRegionOperation在进行跨列簇处理时也要求持有lock的write锁，其它均只需持有lock的read锁
 
 startBulkRegionOperation是在使用工具LoadIncrementalHFiles装载通过HFileOutputFormat输出的HFile文件，
 到一个已经存在的表时执行的方法，因此执行该操作最好是在该region空闲时执行
