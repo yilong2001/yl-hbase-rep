@@ -20,4 +20,3 @@
 ## 致谢
 yl-hbase-rep 实现机制参考了 lily indexer 
 
-wx : yilong2001
